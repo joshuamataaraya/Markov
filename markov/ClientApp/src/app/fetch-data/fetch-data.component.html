@@ -1,0 +1,16 @@
+<h1>Import Files</h1>
+<h3>Base.json: </h3><input type="file" (change)="onImport($event,'base')"/>
+<h3>Cypher.json: </h3><input type="file" (change)="onImport($event,'cypher')"/>
+<h3>Values.json: </h3><input type="file" (change)="onImport($event,'values')"/>
+<h3>Words.json: </h3><input type="file" (change)="onImport($event,'words')"/>
+
+<button (click)="onClickMe()">View Puzzle Results</button>
+
+<div *ngFor="let row of puzzle">
+  <span *ngFor="let column of row" [ngStyle]="{'background-color': column.isWord == true ? 'green' : 'red' }">
+    {{column.letter}}
+  </span>
+</div>
+<div>
+  {{wordsBreakdown}}
+</div>
